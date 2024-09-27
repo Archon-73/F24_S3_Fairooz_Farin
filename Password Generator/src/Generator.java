@@ -68,13 +68,16 @@ public class Generator {
         System.out.println("Use a minimum password length of 8 or more characters if permitted");
         System.out.println("Include lowercase and uppercase alphabetic characters, numbers and symbols if permitted");
         System.out.println("Generate passwords randomly where feasible");
-        System.out.println("Avoid using the same password twice (e.g., across multiple user accounts and/or software systems)");
-        System.out.println("Avoid character repetition, keyboard patterns, dictionary words, letter or number sequences," +
-                "\nusernames, relative or pet names, romantic links (current or past) " +
-                "and biographical information (e.g., ID numbers, ancestors' names or dates).");
+        System.out.println(
+                "Avoid using the same password twice (e.g., across multiple user accounts and/or software systems)");
+        System.out.println(
+                "Avoid character repetition, keyboard patterns, dictionary words, letter or number sequences," +
+                        "\nusernames, relative or pet names, romantic links (current or past) " +
+                        "and biographical information (e.g., ID numbers, ancestors' names or dates).");
         System.out.println("Avoid using information that the user's colleagues and/or " +
                 "acquaintances might know to be associated with the user");
-        System.out.println("Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");
+        System.out.println(
+                "Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");
     }
 
     private void requestPassword() {
@@ -99,7 +102,8 @@ public class Generator {
                 PasswordRequestError(input);
             } while (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"));
 
-            if (isInclude(input)) IncludeLower = true;
+            if (isInclude(input))
+                IncludeLower = true;
 
             do {
                 System.out.println("Do you want Uppercase letters \"ABCD...\" to be used? ");
@@ -107,25 +111,28 @@ public class Generator {
                 PasswordRequestError(input);
             } while (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"));
 
-            if (isInclude(input)) IncludeUpper = true;
+            if (isInclude(input))
+                IncludeUpper = true;
 
             do {
-            System.out.println("Do you want Numbers \"1234...\" to be used? ");
-            input = keyboard.next();
-            PasswordRequestError(input);
+                System.out.println("Do you want Numbers \"1234...\" to be used? ");
+                input = keyboard.next();
+                PasswordRequestError(input);
             } while (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"));
 
-            if (isInclude(input)) IncludeNum = true;
+            if (isInclude(input))
+                IncludeNum = true;
 
             do {
-            System.out.println("Do you want Symbols \"!@#$...\" to be used? ");
-            input = keyboard.next();
-            PasswordRequestError(input);
+                System.out.println("Do you want Symbols \"!@#$...\" to be used? ");
+                input = keyboard.next();
+                PasswordRequestError(input);
             } while (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"));
 
-            if (isInclude(input)) IncludeSym = true;
+            if (isInclude(input))
+                IncludeSym = true;
 
-            //No Pool Selected
+            // No Pool Selected
             if (!IncludeUpper && !IncludeLower && !IncludeNum && !IncludeSym) {
                 System.out.println("You have selected no characters to generate your " +
                         "password, at least one of your answers should be Yes\n");
@@ -146,8 +153,7 @@ public class Generator {
     private boolean isInclude(String Input) {
         if (Input.equalsIgnoreCase("yes")) {
             return true;
-        } 
-        else {
+        } else {
             return false;
         }
     }
